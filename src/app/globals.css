@@ -1,9 +1,11 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
+
 
 @theme inline {
   --color-background: var(--background);
@@ -23,4 +25,172 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Enhanced smooth scrolling */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Enhanced scroll-snap behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+  height: 100%;
+  /* Better touchpad support */
+  overscroll-behavior: none;
+}
+
+/* Ensure each section takes full viewport height */
+.snap-start {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  height: 100vh;
+  /* Remove overflow: hidden to allow touchpad scrolling */
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  /* Ensure snap works in both directions */
+  scroll-snap-stop: always;
+}
+
+/* Smooth transitions for scroll-snap */
+.snap-y {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto; /* Changed from scroll to auto for better touchpad behavior */
+  overflow-x: hidden;
+  height: 100vh;
+  /* Better touchpad scrolling */
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+  /* Enhanced snap behavior for both directions */
+  scroll-snap-stop: always;
+  /* Smooth momentum for both directions */
+  scroll-behavior: smooth;
+}
+
+.snap-mandatory {
+  scroll-snap-type: y mandatory;
+  /* Ensure mandatory snap works in both directions */
+  scroll-snap-stop: always;
+}
+
+/* Enhanced scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scroll behavior for better performance */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .snap-y {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Better touchpad and mobile support */
+* {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}
+
+/* Enhanced momentum scrolling for touchpad in both directions */
+@media (hover: hover) and (pointer: fine) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .snap-y {
+    scroll-behavior: smooth;
+    /* Enhanced momentum for both directions */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    /* Force snap in both directions */
+    scroll-snap-stop: always;
+  }
+  
+  .snap-start {
+    /* Ensure each section snaps properly in both directions */
+    scroll-snap-stop: always;
+  }
+}
+
+.white-silver-gradient {
+    background-position-x: 0%;
+    background-position-y: 0px;
+}
+
+.white-silver-animated-text1, .white-silver-animated-text2 {
+    color: #0000;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #999, #fff 50%, #999) 0 0 / 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
+}
+
+.white-silver-animated-text1 {
+    animation: white-silver-gradient 6s ease-in-out infinite;
+}
+
+@keyframes white-silver-gradient {
+    0% { background-position-x: 0%; }
+    100% { background-position-x: 100%; }
+}
+
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1e; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4a4a5a; 
+  border-radius: 4px; 
+  border: 2px solid #1a1a1e; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6a6a7a; 
+}
+
+html {
+  scrollbar-width: thin; 
+  scrollbar-color: #4a4a5a #1a1a1e; 
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  display: inline-flex; 
+}
+
+
+.box{
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 100%;
+}
+
+
+ul li{
+  width: 10px;
+  height: 50px;
+  border-radius: 40px;
+  background-color: teal;
 }
