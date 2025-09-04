@@ -3,6 +3,9 @@ import './globals.css'
 export const metadata = {
   title: 'School Management',
   description: 'Manage school information',
+    icons: {
+    icon: '/favicon.png',  
+  },
 }
 
 export default function RootLayout({ children }) {
