@@ -38,7 +38,7 @@ export default function AddSchool() {
         body: formData,
       })
       if (response.ok) {
-        router.push('/showSchools')
+        // router.push('/showSchools')
         alert('School added successfully!')
       } else {
         alert('Failed to add school')
