@@ -1,7 +1,7 @@
 import SchoolCard from '../../components/SchoolCard'
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
 async function getSchools() {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
 
 
   // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/schools`, {
@@ -12,6 +12,9 @@ async function getSchools() {
 }
 
 export default async function ShowSchools() {
+  if(!baseUrl){
+    return null
+  }
   const schools = await getSchools()
 
   return (
