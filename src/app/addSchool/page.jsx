@@ -17,7 +17,7 @@ const schema = z.object({
 })
 
 export default function AddSchool() {
-   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
+  
   const router = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(schema),
@@ -34,7 +34,7 @@ export default function AddSchool() {
     })
 
     try {
-      const response = await fetch(`${baseUrl}/api/schools`, {
+      const response = await fetch('/api/schools', {
         method: 'POST',
         body: formData,
       })
